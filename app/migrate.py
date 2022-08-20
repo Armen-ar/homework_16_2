@@ -42,7 +42,8 @@ def migration(fixture_path, model, convert_dates=False):
 
 def migrate_user_roles(fixture_path):
     """
-    Записывает данные из json-файла user_roles в таблицу user_roles, вызывая внутри унифицированную функцию migration()
+    Записывает данные из json-файла user_roles в таблицу user_roles,
+    вызывая внутри унифицированную функцию migration()
     :param fixture_path:  путь до фикстуры.
     """
     migration(
@@ -53,7 +54,8 @@ def migrate_user_roles(fixture_path):
 
 def migrate_users(fixture_path):
     """
-    Записывает данные из json-файла users в таблицу users, вызывая внутри унифицированную функцию migration()
+    Записывает данные из json-файла users в таблицу users,
+    вызывая внутри унифицированную функцию migration()
     :param fixture_path: путь до фикстуры.
     """
     migration(
@@ -64,7 +66,8 @@ def migrate_users(fixture_path):
 
 def migrate_orders(fixture_path):
     """
-    Записывает данные из json-файла orders в таблицу orders, вызывая внутри унифицированную функцию migration()
+    Записывает данные из json-файла orders в таблицу orders,
+    вызывая внутри унифицированную функцию migration()
     :param fixture_path:  путь до фикстуры.
     """
     migration(
@@ -76,7 +79,8 @@ def migrate_orders(fixture_path):
 
 def migrate_offers(fixture_path):
     """
-    Записывает данные из json-файла offers в таблицу offers, вызывая внутри унифицированную функцию migration()
+    Записывает данные из json-файла offers в таблицу offers,
+    вызывая внутри унифицированную функцию migration()
     :param fixture_path: путь до фикстуры.
     """
     migration(

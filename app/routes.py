@@ -4,7 +4,9 @@ from flask import current_app as app, jsonify, abort, request
 
 @app.route('/users', methods=['GET'])
 def get_users():
-    """Возвращает список пользователей."""
+    """
+    Возвращает список пользователей.
+    """
     users = db.session.query(models.User).all()
     users_list = []
     for user in users:
@@ -22,7 +24,9 @@ def get_users():
 
 @app.route('/users/<int:user_id>', methods=['GET'])
 def get_user(user_id):
-    """Возвращает пользователя по ID."""
+    """
+    Возвращает пользователя по ID.
+    """
     user = db.session.query(models.User).filter(models.User.id == user_id).first()  # first (если не найдёт id, не
                                                                                      # упадёт с ошибкой, а выдаст None)
     if user is None:
@@ -42,7 +46,9 @@ def get_user(user_id):
 
 @app.route('/orders', methods=['GET'])
 def get_orders():
-    """Возвращает список заказов."""
+    """
+    Возвращает список заказов.
+    """
     orders = db.session.query(models.Order).all()
     orders_list = []
     for order in orders:
@@ -62,7 +68,9 @@ def get_orders():
 
 @app.route('/orders/<int:order_id>', methods=['GET'])
 def get_order(order_id):
-    """Возвращает заказ по ID."""
+    """
+    Возвращает заказ по ID.
+    """
     order = db.session.query(models.Order).filter(models.Order.id == order_id).first()
     if order is None:
 
@@ -83,7 +91,9 @@ def get_order(order_id):
 
 @app.route('/offers', methods=['GET'])
 def get_offers():
-    """Возвращает список предложений."""
+    """
+    Возвращает список предложений.
+    """
     offers = db.session.query(models.Offer).all()
     offers_list = []
     for offer in offers:
@@ -97,7 +107,9 @@ def get_offers():
 
 @app.route('/offers/<int:offer_id>', methods=['GET'])
 def get_offer(offer_id):
-    """Возвращает предложениe по ID."""
+    """
+    Возвращает предложениe по ID.
+    """
     offer = db.session.query(models.Offer).filter(models.Offer.id == offer_id).first()
     if offer is None:
 
@@ -112,7 +124,9 @@ def get_offer(offer_id):
 
 @app.route('/users', methods=['POST'])
 def create_users():
-    """Cоздаёт нового пользователя."""
+    """
+    Cоздаёт нового пользователя.
+    """
     data = request.json
 
     db.session.add(models.User(**data))
@@ -124,7 +138,9 @@ def create_users():
 
 @app.route('/users/<int:user_id>', methods=['PUT'])
 def update_users(user_id):
-    """Обновляет данные пользователя."""
+    """
+    Обновляет данные пользователя.
+    """
     data = request.json
 
     user = db.session.query(models.User).filter(models.User.id == user_id).first()
@@ -140,7 +156,9 @@ def update_users(user_id):
 
 @app.route('/users/<int:user_id>', methods=['DELETE'])
 def delete_users(user_id):
-    """Удаляет данные пользователя."""
+    """
+    Удаляет данные пользователя.
+    """
     db.session.query(models.User).filter(models.User.id == user_id).delete()
 
     db.session.commit()
@@ -150,7 +168,9 @@ def delete_users(user_id):
 
 @app.route('/orders', methods=['POST'])
 def create_orders():
-    """Cоздаёт новый заказ."""
+    """
+    Cоздаёт новый заказ.
+    """
     data = request.json
 
     db.session.add(models.Order(**data))
@@ -162,7 +182,9 @@ def create_orders():
 
 @app.route('/orders/<int:order_id>', methods=['PUT'])
 def update_orders(order_id):
-    """Обновление заказа."""
+    """
+    Обновление заказа.
+    """
     data = request.json
 
     order = db.session.query(models.Order).filter(models.Order.id == order_id).first()
@@ -178,7 +200,9 @@ def update_orders(order_id):
 
 @app.route('/orders/<int:order_id>', methods=['DELETE'])
 def delete_orders(order_id):
-    """Удаляет заказ."""
+    """
+    Удаляет заказ.
+    """
     db.session.query(models.Order).filter(models.Order.id == order_id).delete()
 
     db.session.commit()
@@ -188,7 +212,9 @@ def delete_orders(order_id):
 
 @app.route('/offers', methods=['POST'])
 def create_offers():
-    """Cоздаёт новое предложение."""
+    """
+    Cоздаёт новое предложение.
+    """
     data = request.json
 
     db.session.add(models.Offer(**data))
@@ -200,7 +226,9 @@ def create_offers():
 
 @app.route('/offers/<int:offer_id>', methods=['PUT'])
 def update_offers(offer_id):
-    """Обновлеяет предложение."""
+    """
+    Обновляет предложение.
+    """
     data = request.json
 
     offer = db.session.query(models.Offer).filter(models.Offer.id == offer_id).first()
@@ -216,7 +244,9 @@ def update_offers(offer_id):
 
 @app.route('/offers/<int:offer_id>', methods=['DELETE'])
 def delete_offers(offer_id):
-    """Удаляет предложение."""
+    """
+    Удаляет предложение.
+    """
     db.session.query(models.Offer).filter(models.Offer.id == offer_id).delete()
 
     db.session.commit()
